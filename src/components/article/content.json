@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_article_contents",
+  "info": {
+    "displayName": "content"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "blocks"
+    }
+  }
+}
