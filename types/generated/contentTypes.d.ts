@@ -431,6 +431,39 @@ export interface ApiContactContact extends Schema.CollectionType {
   };
 }
 
+export interface ApiCsrNumberCsrNumber extends Schema.SingleType {
+  collectionName: 'csr_numbers';
+  info: {
+    singularName: 'csr-number';
+    pluralName: 'csr-numbers';
+    displayName: 'csr-number';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    donationAmount: Attribute.Decimal;
+    peopleHelped: Attribute.Integer;
+    peopleInNeed: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::csr-number.csr-number',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::csr-number.csr-number',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRoomTypeImageRoomTypeImage extends Schema.CollectionType {
   collectionName: 'room_type_images';
   info: {
@@ -901,6 +934,7 @@ declare module '@strapi/types' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'api::article.article': ApiArticleArticle;
       'api::contact.contact': ApiContactContact;
+      'api::csr-number.csr-number': ApiCsrNumberCsrNumber;
       'api::room-type-image.room-type-image': ApiRoomTypeImageRoomTypeImage;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
